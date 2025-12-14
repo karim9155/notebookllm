@@ -1,5 +1,5 @@
 {
-  "name": "Import Insights LM Workflows",
+  "name": "Import LearnNotebook Workflows",
   "nodes": [
     {
       "parameters": {
@@ -424,7 +424,7 @@
     },
     {
       "parameters": {
-        "content": "# Import Insights LM Workflows\n- Only run this workflow once to avoid having duplicate workflows in your project.\n- If you do create duplicate workflows, you can archive them in your instance\n- https://github.com/theaiautomators/insights-lm-public",
+        "content": "# Import LearnNotebook Workflows\n- Only run this workflow once to avoid having duplicate workflows in your project.\n- If you do create duplicate workflows, you can archive them in your instance\n- https://github.com/theaiautomators/insights-lm-public",
         "width": 680,
         "color": 6
       },

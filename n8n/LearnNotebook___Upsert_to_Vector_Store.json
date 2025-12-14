@@ -1,5 +1,5 @@
 {
-  "name": "InsightsLM - Upsert to Vector Store",
+  "name": "LearnNotebook - Upsert to Vector Store",
   "nodes": [
     {
       "parameters": {
@@ -290,7 +290,7 @@
           "__rl": true,
           "value": "AzZ5a2zCGU1O3MRV",
           "mode": "list",
-          "cachedResultName": "InsightsLM - Extract Text"
+          "cachedResultName": "LearnNotebook - Extract Text"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -382,7 +382,7 @@
     },
     {
       "parameters": {
-        "content": "[![The AI Automators](https://www.theaiautomators.com/wp-content/uploads/2025/03/gray-logo.png)](https://www.theaiautomators.com/)\n## InsightsLM\nhttps://github.com/theaiautomators/insights-lm-public",
+        "content": "[![The AI Automators](https://www.theaiautomators.com/wp-content/uploads/2025/03/gray-logo.png)](https://www.theaiautomators.com/)\n## LearnNotebook\nhttps://github.com/theaiautomators/insights-lm-public",
         "height": 220,
         "width": 280,
         "color": 7
