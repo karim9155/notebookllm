@@ -18,10 +18,10 @@ interface ChatAreaProps {
   notebook?: {
     id: string;
     title: string;
-    description?: string;
-    generation_status?: string;
-    icon?: string;
-    example_questions?: string[];
+    description?: string | null;
+    generation_status?: string | null;
+    icon?: string | null;
+    example_questions?: string[] | null;
   } | null;
   onCitationClick?: (citation: Citation) => void;
 }

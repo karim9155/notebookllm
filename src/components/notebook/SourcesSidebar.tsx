@@ -107,7 +107,7 @@ const SourcesSidebar = ({
     );
   };
 
-  const renderProcessingStatus = (status: string) => {
+  const renderProcessingStatus = (status: string | null) => {
     switch (status) {
       case 'uploading':
         return <Upload className="h-4 w-4 animate-pulse text-blue-500" />;

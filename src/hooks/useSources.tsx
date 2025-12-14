@@ -161,7 +161,7 @@ export const useSources = (notebookId?: string) => {
             try {
               await generateNotebookContentAsync({
                 notebookId,
-                filePath: newSource.file_path || newSource.url,
+                filePath: (newSource.file_path || newSource.url) || undefined,
                 sourceType: newSource.type
               });
             } catch (error) {

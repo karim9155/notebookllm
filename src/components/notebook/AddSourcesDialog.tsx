@@ -186,7 +186,7 @@ const AddSourcesDialog = ({
       console.log('Creating first source for:', firstFile.name);
       const firstSource = await addSourceAsync(firstSourceData);
       
-      let remainingSources = [];
+      let remainingSources: any[] = [];
       
       // Step 2: If there are more files, add a delay before creating the rest
       if (files.length > 1) {
@@ -335,7 +335,7 @@ const AddSourcesDialog = ({
       
       console.log('First source created:', firstSource.id);
       
-      let remainingSources = [];
+      let remainingSources: any[] = [];
       
       // If there are more URLs, add a delay before creating the rest
       if (urls.length > 1) {

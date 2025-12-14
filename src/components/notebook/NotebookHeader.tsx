@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { User, LogOut } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useNotebookUpdate } from '@/hooks/useNotebookUpdate';
 import {
   DropdownMenu,
@@ -19,7 +19,7 @@ interface NotebookHeaderProps {
 }
 
 const NotebookHeader = ({ title, notebookId }: NotebookHeaderProps) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { logout } = useLogout();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
@@ -56,7 +56,7 @@ const NotebookHeader = ({ title, notebookId }: NotebookHeaderProps) => {
   };
 
   const handleIconClick = () => {
-    navigate('/');
+    router.push('/');
   };
 
   return (

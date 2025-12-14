@@ -225,9 +225,9 @@ const StudioSidebar = ({
             <h3 className="font-medium text-gray-900">Audio Overview</h3>
           </div>
 
-          {hasValidAudio && !audioError && currentStatus !== 'generating' && !isAutoRefreshing ? <AudioPlayer 
-              audioUrl={notebook.audio_overview_url} 
-              title="Deep Dive Conversation" 
+          {hasValidAudio && !audioError && currentStatus !== 'generating' && !isAutoRefreshing ? <AudioPlayer
+              audioUrl={notebook.audio_overview_url || ''}
+              title="Deep Dive Conversation"
               notebookId={notebookId} 
               expiresAt={notebook.audio_url_expires_at} 
               onError={handleAudioError} 
