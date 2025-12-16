@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { MoreVertical, Plus, Edit, Bot, User, Loader2, AlertCircle, CheckCircle2, RefreshCw } from 'lucide-react';
 import { useNotes, Note } from '@/hooks/useNotes';
 import { useAudioOverview } from '@/hooks/useAudioOverview';
@@ -26,6 +33,8 @@ const StudioSidebar = ({
   const [editingNote, setEditingNote] = useState<Note | null>(null);
   const [isCreatingNote, setIsCreatingNote] = useState(false);
   const [audioError, setAudioError] = useState(false);
+  const [language, setLanguage] = useState('en');
+  const [style, setStyle] = useState('casual');
   const {
     notes,
     isLoading,
@@ -128,7 +137,7 @@ const StudioSidebar = ({
 
   const handleGenerateAudio = () => {
     if (notebookId) {
-      generateAudioOverview(notebookId);
+      generateAudioOverview({ notebookId, language, style });
       setAudioError(false);
     }
   };
@@ -268,6 +277,33 @@ const StudioSidebar = ({
                     Retry
                   </Button>
                 </div>}
+              
+              {/* Options */}
+              {currentStatus !== 'generating' && !isGenerating && !isAutoRefreshing && (
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <Select value={language} onValueChange={setLanguage}>
+                    <SelectTrigger className="h-8 text-xs">
+                      <SelectValue placeholder="Language" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="en">English</SelectItem>
+                      <SelectItem value="fr">French</SelectItem>
+                      <SelectItem value="de">German</SelectItem>
+                      <SelectItem value="pl">Polish</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <Select value={style} onValueChange={setStyle}>
+                    <SelectTrigger className="h-8 text-xs">
+                      <SelectValue placeholder="Style" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="casual">Casual</SelectItem>
+                      <SelectItem value="professional">Professional</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
               
               <div className="flex space-x-2">
                 <Button size="sm" onClick={handleGenerateAudio} disabled={isGenerating || currentStatus === 'generating' || !hasProcessedSource || isAutoRefreshing} className="flex-1 text-white bg-slate-900 hover:bg-slate-800">

@@ -13,7 +13,7 @@ serve(async (req) => {
   }
 
   try {
-    const { notebookId } = await req.json()
+    const { notebookId, language, style } = await req.json()
     
     if (!notebookId) {
       return new Response(
@@ -66,6 +66,8 @@ serve(async (req) => {
             },
             body: JSON.stringify({
               notebook_id: notebookId,
+              language,
+              style,
               callback_url: `${supabaseUrl}/functions/v1/audio-generation-callback`
             })
           })

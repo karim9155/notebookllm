@@ -60,12 +60,12 @@ export const useAudioOverview = (notebookId?: string) => {
   }, [notebookId, toast, queryClient]);
 
   const generateAudioOverview = useMutation({
-    mutationFn: async (notebookId: string) => {
+    mutationFn: async ({ notebookId, language, style }: { notebookId: string; language: string; style: string }) => {
       setIsGenerating(true);
       setGenerationStatus('generating');
       
       const { data, error } = await supabase.functions.invoke('generate-audio-overview', {
-        body: { notebookId }
+        body: { notebookId, language, style }
       });
 
       if (error) {
@@ -75,7 +75,7 @@ export const useAudioOverview = (notebookId?: string) => {
 
       return data;
     },
-    onSuccess: (data, notebookId) => {
+    onSuccess: (data, variables) => {
       console.log('Audio generation started successfully:', data);
     },
     onError: (error) => {
